@@ -1,4 +1,6 @@
+import AuthProvider from '-/context/auth-provider';
 import { ThemeProvider } from '-/context/theme-provider';
+import TRPCProvider from '-/trpc/provider';
 import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
@@ -18,12 +20,16 @@ export default function RootLayout({
   return (
     <html lang='id'>
       <body className={inter.className}>
-        <ThemeProvider
-          attribute='class'
-          defaultTheme='dark'
-        >
-          {children}
-        </ThemeProvider>
+        <AuthProvider>
+          <TRPCProvider>
+            <ThemeProvider
+              attribute='class'
+              defaultTheme='dark'
+            >
+              {children}
+            </ThemeProvider>
+          </TRPCProvider>
+        </AuthProvider>
       </body>
     </html>
   );
