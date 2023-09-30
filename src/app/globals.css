@@ -58,3 +58,17 @@
     @apply bg-background text-foreground;
   }
 }
+
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary) / 0.8);
+  border-radius: var(--radius);
+}
+
+*::-webkit-scrollbar-track {
+  background: hsl(var(--primary) / 0.3);
+  border-radius: var(--radius);
+}

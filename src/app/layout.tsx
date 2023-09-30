@@ -1,3 +1,5 @@
+import Navbar from '-/components/navbar';
+import Footer from '-/components/ui/footer';
 import AuthProvider from '-/context/auth-provider';
 import { ThemeProvider } from '-/context/theme-provider';
 import TRPCProvider from '-/trpc/provider';
@@ -64,14 +66,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang='id'>
-      <body className={inter.className}>
+      <body className={`${inter.className} overflow-x-hidden`}>
         <AuthProvider>
           <TRPCProvider>
             <ThemeProvider
               attribute='class'
               defaultTheme='dark'
             >
+              <Navbar />
               {children}
+              <Footer />
             </ThemeProvider>
           </TRPCProvider>
         </AuthProvider>
